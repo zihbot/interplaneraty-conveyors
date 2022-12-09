@@ -14,9 +14,22 @@ public class Orbit
     {
         get
         {
-            float gravitationalParameterPerAu = gravitationalCenter.massInSM * 887.435768f; // gravitational constant * solar mass / astronomical unit / 1000000
+            float gravitationalParameterPerAu = gravitationalCenter.massInEM * 0.00266448898f; // gravitational constant * earth mass / astronomical unit / 1000000
             Vector3 angularMomentum = Vector3.Cross(relativePositionInAU, velocityInKmS);
             return Vector3.Cross(velocityInKmS, angularMomentum) / gravitationalParameterPerAu - relativePositionInAU.normalized;
         }
+    }
+    public float parameter // p
+    {
+        get
+        {
+            float gravitationalParameterPerAu = gravitationalCenter.massInEM * 1.78110087f * Mathf.Pow(10,-14); // gravitational constant * earth mass / astronomical unit / astronomical unit / 1000000
+            Vector3 angularMomentum = Vector3.Cross(relativePositionInAU, velocityInKmS);
+            return angularMomentum.sqrMagnitude / gravitationalParameterPerAu / 149597871000.0f;
+        }
+    }
+
+    public ConicSection orbitCurve {
+        get { return new ConicSection(eccentricity.magnitude, parameter); }
     }
 }

@@ -539,9 +539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5270a57f2194944b1f284bface45e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  massInSM: 0.01
+  massInEM: 1
   posInAu: {x: 0, y: 0, z: 0}
-  velocityInKmS: {x: 0, y: 0, z: 0.1}
+  velocityInKmS: {x: 0, y: 0, z: 1}
   eccentricity: 0
 --- !u!1 &1897305892
 GameObject:
