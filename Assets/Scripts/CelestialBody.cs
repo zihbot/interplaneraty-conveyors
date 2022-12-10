@@ -5,10 +5,10 @@ using UnityEngine;
 public class CelestialBody : MonoBehaviour
 {
     public float massInEM; // in solar mass
-    public Vector3 posInAu; // in astronomical unit
+    public Vector3 posInLd; // in astronomical unit
 
     //Test
-    public Vector3 velocityInKmS; // in astronomical unit
+    public Vector3 velocityInLdS; // in astronomical unit
     private LineRenderer lineRenderer;
     public float e;
     public float p;
@@ -26,11 +26,11 @@ public class CelestialBody : MonoBehaviour
     {
         Orbit o = new Orbit();
         o.gravitationalCenter = this;
-        o.relativePositionInAU = new Vector3(1, 0, 0);
-        o.velocityInKmS = velocityInKmS;
+        o.relativePositionInLd = new Vector3(1, 0, 0);
+        o.velocityInLdS = velocityInLdS;
 
         e = o.eccentricity.magnitude;
-        p = o.parameter;
+        p = o.parameterInLd;
 
         ConicSection cs = o.orbitCurve;
         for (int i = 0; i < 10; i++)

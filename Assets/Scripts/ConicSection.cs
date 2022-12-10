@@ -7,36 +7,36 @@ public class ConicSection
         CIRCLE, ELLIPSE, PARABOLA, HYPERBOLA
     }
     float eccentricity;
-    float parameter;
+    float parameterInLd;
 
     float a;
     float b;
     SectionType type;
-    public ConicSection(float eccentricity, float parameter)
+    public ConicSection(float eccentricity, float parameterInLd)
     {
         this.eccentricity = eccentricity;
-        this.parameter = parameter;
+        this.parameterInLd = parameterInLd;
 
         if (eccentricity < Mathf.Epsilon)
         {
             type = SectionType.CIRCLE;
-            a = parameter;
+            a = this.parameterInLd;
         }
         else if (Mathf.Abs(eccentricity - 1) < Mathf.Epsilon)
         {
             type = SectionType.PARABOLA;
-            a = parameter / 2;
+            a = this.parameterInLd / 2;
         }
         else if (eccentricity > 0 && eccentricity < 1)
         {
             type = SectionType.ELLIPSE;
-            a = parameter / (1 - eccentricity * eccentricity);
+            a = this.parameterInLd / (1 - eccentricity * eccentricity);
             b = a * Mathf.Sqrt(1 - eccentricity * eccentricity);
         }
         else
         {
             type = SectionType.HYPERBOLA;
-            a = parameter / (eccentricity * eccentricity - 1);
+            a = this.parameterInLd / (eccentricity * eccentricity - 1);
             b = a * Mathf.Sqrt(eccentricity * eccentricity - 1);
         }
     }

@@ -408,7 +408,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178326998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9817bc3fe62e665448e551d4d9e24a2a, type: 3}
   m_Name: 
@@ -539,10 +539,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5270a57f2194944b1f284bface45e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  massInEM: 1
-  posInAu: {x: 0, y: 0, z: 0}
-  velocityInKmS: {x: 0, y: 0, z: 1}
-  eccentricity: 0
+  massInEM: 333000
+  posInLd: {x: 0, y: 0, z: 0}
+  velocityInLdS: {x: 0, y: 0, z: 1}
+  e: 0
+  p: 0
 --- !u!1 &1897305892
 GameObject:
   m_ObjectHideFlags: 0
