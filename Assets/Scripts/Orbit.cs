@@ -19,23 +19,23 @@ public class Orbit
     {
         get
         {
-            float gravitationalParameterPerAu = gravitationalCenter.massInEM * GRAVITATIONAL_CONSTANT_IN_CUSTOM_UNITS;
+            float gravitationalParameter = gravitationalCenter.massInEM * GRAVITATIONAL_CONSTANT_IN_CUSTOM_UNITS;
             Vector3 angularMomentum = Vector3.Cross(relativePositionInLd, velocityInLdS);
-            return Vector3.Cross(velocityInLdS, angularMomentum) / gravitationalParameterPerAu - relativePositionInLd.normalized;
+            return Vector3.Cross(velocityInLdS, angularMomentum) / gravitationalParameter - relativePositionInLd.normalized;
         }
     }
     public float parameterInLd // p
     {
         get
         {
-            float gravitationalParameterPerAu = gravitationalCenter.massInEM * GRAVITATIONAL_CONSTANT_IN_CUSTOM_UNITS;
+            float gravitationalParameter = gravitationalCenter.massInEM * GRAVITATIONAL_CONSTANT_IN_CUSTOM_UNITS;
             Vector3 angularMomentum = Vector3.Cross(relativePositionInLd, velocityInLdS);
-            return angularMomentum.sqrMagnitude / gravitationalParameterPerAu;
+            return angularMomentum.sqrMagnitude / gravitationalParameter;
         }
     }
 
     public ConicSection orbitCurve
     {
-        get { return new ConicSection(eccentricity.magnitude, parameterInLd); }
+        get { return new ConicSection(eccentricity.magnitude, parameterInLd * 3844.0f); }
     }
 }
