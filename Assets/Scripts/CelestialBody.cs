@@ -7,11 +7,21 @@ public class CelestialBody : MonoBehaviour
     public float massInEM; // in solar mass
     public Vector3 posInLd; // in lunar distance
 
+    public bool central = false;
+
     void Start()
     {
+        SpacePerspectiveHandler.Instance.OnPerspectiveChanged += UpdatePostion;
     }
 
     void Update()
     {
+        if (central) {
+            SpacePerspectiveHandler.Instance.UpdateCentralBody(this);
+        }
+    }
+
+    public void UpdatePostion() {
+        gameObject.transform.position = SpacePerspectiveHandler.Instance.PositionToGamePerpective(posInLd);
     }
 }
