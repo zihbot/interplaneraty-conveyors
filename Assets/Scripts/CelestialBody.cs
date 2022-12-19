@@ -6,6 +6,7 @@ public class CelestialBody : MonoBehaviour
 {
     public float massInEM; // in solar mass
     public Vector3 posInLd; // in lunar distance
+    public float radiusInMm; // in mega meter
 
     public bool central = false;
 
