@@ -24,5 +24,7 @@ public class CelestialBody : MonoBehaviour
 
     public void UpdatePostion() {
         gameObject.transform.position = SpacePerspectiveHandler.Instance.PositionToGamePerpective(posInLd);
+        float scale = SpacePerspectiveHandler.Instance.ScaleToGamePerpective(this);
+        gameObject.transform.localScale = new Vector3(scale, scale, scale);
     }
 }
